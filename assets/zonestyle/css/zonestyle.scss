@@ -1,0 +1,290 @@
+
+/* 
+    Created on : 7 mars 2017, 00:49:53
+    Author     : Frank Donald Fontcha
+*/
+
+html::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #aaa;
+    border-radius: 5px;    
+    height: 8px;
+    width: 8px;
+    opacity: 0.5;
+}
+
+html::-webkit-scrollbar, .scroll::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5; 
+    cursor: pointer;
+    height: 8px;
+}
+
+html::-webkit-scrollbar:hover, .scroll::-webkit-scrollbar:hover {
+    width: 8px; 
+    background-color: #fff;
+    cursor: pointer;
+    height: 8px;
+}
+
+html::-webkit-scrollbar-thumb, .scroll::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+HTML {
+    overflow-x: hidden; 
+}
+.no_scroll{
+    overflow: hidden;
+}
+.scroll_v_h, .scroll_h_v{
+    overflow: auto;
+}
+.scroll_v{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.scroll_h{
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 8px;
+}
+.scroll_hover{
+    .scroll::-webkit-scrollbar {
+        width: 0px;
+        background-color: none; 
+        cursor: pointer;
+        height: 0px;
+    }
+    transition-duration: 0.6s;
+}
+.scroll_hover:hover{
+    .scroll::-webkit-scrollbar {
+        width: 8px;
+        background-color: #fff;
+        cursor: pointer;
+        height: 8px;
+    }
+    .scroll::-webkit-scrollbar-thumb {
+        background-color: #f5f5f5;
+    }
+}
+.scroll_bleu::-webkit-scrollbar-thumb {
+    background-color: #229CDD;
+    opacity: 0.5;
+}
+.scroll_bleu::-webkit-scrollbar-track {
+    background-color: #fff;
+    opacity: 0.5;
+    border: 1px solid lightblue;
+}
+.scroll_bleu::-webkit-scrollbar{
+    opacity: 0.5;
+}
+.scroll_hover:hover{
+    .scroll_bleu::-webkit-scrollbar-thumb {
+        background-color: #229CDD;
+        opacity: 0.5;
+    }
+    .scroll_bleu::-webkit-scrollbar-track {
+        background-color: #fff;
+        opacity: 0.5;
+        border: 1px solid lightblue;
+    }
+    .scroll_bleu::-webkit-scrollbar{
+        opacity: 0.5;
+    }
+}
+
+.scroll_noir::-webkit-scrollbar-thumb {
+    background-color: #555;
+    opacity: 0.5;
+}
+.scroll_noir::-webkit-scrollbar-track {
+    background-color: #fff;
+    opacity: 0.5;
+    border: 1px solid #aaa;
+}
+.scroll_noir::-webkit-scrollbar{
+    opacity: 0.5;
+}
+.scroll_hover:hover{
+    .scroll_noir::-webkit-scrollbar-thumb {
+        background-color: #555;
+        opacity: 0.5;
+    }
+    .scroll_noir::-webkit-scrollbar-track {
+        background-color: #fff;
+        opacity: 0.5;
+        border: 1px solid #aaa;
+    }
+    .scroll_noir::-webkit-scrollbar{
+        opacity: 0.5;
+    }
+}
+
+.scroll_red::-webkit-scrollbar-thumb {
+    background-color: red;
+    opacity: 0.5;
+}
+.scroll_red::-webkit-scrollbar-track {
+    background-color: #fff;
+    opacity: 0.5;
+    border: 1px solid lightcoral;
+}
+.scroll_red::-webkit-scrollbar{
+    opacity: 0.5;
+}
+.scroll_hover:hover{
+    .scroll_red::-webkit-scrollbar-thumb {
+        background-color: red;
+        opacity: 0.5;
+    }
+    .scroll_red::-webkit-scrollbar-track {
+        background-color: #fff;
+        opacity: 0.5;
+        border: 1px solid lightcoral;
+    }
+    .scroll_red::-webkit-scrollbar{
+        opacity: 0.5;
+    }
+}
+body{
+    background: #fff;
+    font-family:  "Calibri", Arial, Verdana, "Arial", Helvetica, sans-serif;
+}
+
+@import 'entete';
+
+
+.extra_contenaire{
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    float: left;
+    overflow-y: visible;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+.extra{
+    background-color: #F5F5F5;
+    border: 1px solid #ddd;
+}
+.fond_griser{
+    background: #f5f5f5;
+    background-attachment: fixed;
+    border: 1px solid #ddd;
+}
+
+
+@import 'grids';
+
+@import 'form';
+
+@import 'slider';
+
+@import 'cards';
+
+@import 'loader';
+
+@import 'boutton';
+
+@import 'modale';
+
+@import 'footer';
+
+@import 'alert';
+
+@import 'bulle_block';
+
+@import 'onglets';
+
+@import 'media';
+
+@import 'tableaux';
+
+
+.navSearch_cover{
+     background: #666;
+     position:fixed;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     z-index: 9999;
+     opacity: 0.4;
+     display:none;
+}
+
+.hover{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    transition-duration: 0.6s;
+    animation-duration: 0.6s;
+}
+.hover:hover{
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+}
+.centrer_texte{
+    text-align: center;
+}
+.fond_no{
+    background: none;
+    border: 0px;
+    color: #fff;
+}
+.fond_noir{
+    background: linear-gradient(#555, #888, #555, #888);
+    color: #fff;
+}
+.fond_orange{
+    background: orange;
+    border: 1px solid orange;
+    color: #fff;
+}
+.shadow{
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+}
+.fond_vert{
+    background: green;
+    border: 1px solid green;
+    color: #fff;
+}
+.fond_blanc{
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #444;
+}
+.fond_rouge{
+    background: orangered;
+    border: 1px solid orangered;
+    color: #fff;
+}
+.fond_bleu{
+    background: #00008B;
+    border: 1px solid #00008B;
+    color: #fff;
+}
+.fond_transparent{
+    background: none;
+    color: #fff;
+}
+a, a:hover{
+   text-decoration: none;    
+}
+
+.tourner{
+    animation: tourner 1s linear infinite;
+}
+
+@keyframes tourner{
+    0%{
+        transform: rotateX(0deg);
+    }
+    100%{
+        transform: rotateX(360deg);
+    }
+}

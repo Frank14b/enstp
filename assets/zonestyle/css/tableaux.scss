@@ -1,0 +1,70 @@
+/*
+
+*/
+/* 
+    Created on : 19 janv. 2017, 18:09:24
+    Author     : Frank Donald Fontcha
+*/
+
+.tb_responsive{
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    float: left;
+}
+
+.zs_tableaux{
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid #229CDD;
+    border-collapse:collapse;
+
+    thead{
+        th{
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize; 
+            padding: 8px;
+            color: #fff;
+        }
+        background: #229CDD;
+    }
+
+    tbody{
+        tr{
+            td{
+                text-transform: lowercase;
+                border: 1px solid #eee;
+                border-collapse:collapse;
+                padding: 8px;
+                transform: scale(0.86);
+                transition-duration: 0.4s;
+            }
+        }
+    }
+}
+
+.zs_tableaux tr:nth-child(2n){
+    background: #eee;
+    color: #229CDD;
+}
+.zs_tableaux tr:nth-child(4n){
+    background: #ccc;
+    color: #222;
+}
+.zs_tableaux tr:last-child{
+    border-bottom: 0px;
+}
+
+td:hover{
+    background: #229CDD;
+    color: #fff;
+    transform: scale(1);
+    opacity: 0.8;
+}
+
+

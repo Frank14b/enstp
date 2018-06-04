@@ -1,0 +1,281 @@
+/* 
+    Created on : 7 mars 2017, 02:44:15
+    Author     : Frank Donald Fontcha
+*/
+.zs_form {
+  position: relative;
+  width: 100%;
+  float: left;
+  border-radius: 2px;
+  margin: -8px;
+  padding: 8px; }
+  .zs_form .form_element {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 2px;
+    height: 72px;
+    box-content: border-box; }
+    .zs_form .form_element .zs_label {
+      float: left;
+      width: 100%;
+      position: relative;
+      padding-top: 25px;
+      margin: 0px;
+      border-radius: 2px;
+      height: 16px;
+      font-size: 16px;
+      margin: 0;
+      transform: translateY(22px);
+      color: #fff;
+      transition: transform 0.3s, font-size 0.3s; }
+    .zs_form .form_element .zs_input {
+      float: left;
+      width: 100%;
+      position: relative;
+      padding: 0px;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-radius: 2px;
+      border: 0px;
+      background-color: none;
+      line-height: 16px;
+      -webkit-appearance: none;
+      outline: none;
+      font-size: 16px;
+      background: transparent;
+      transform: translateY(8px); }
+    .zs_form .form_element .zs_file {
+      visibility: hidden; }
+    .zs_form .form_element .file {
+      cursor: pointer; }
+    .zs_form .form_element .input_file {
+      margin-top: -20px;
+      margin-left: 5%;
+      color: #fff; }
+  .zs_form .form_element::before {
+    content: '';
+    height: 1px;
+    background: none;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0.5, 1); }
+  .zs_form .form_element::after {
+    content: '';
+    height: 1.5px;
+    background: #fff  ;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+  .zs_form .is_focus .zs_label {
+    transform: translateY(-5px);
+    font-size: 13px;
+    color: #fff; }
+  .zs_form .is_focus::after {
+    transform: scaleX(0.8); }
+  .zs_form .is_focus::before {
+    background: none;
+    color: #fff;
+    height: 30px;
+    border-radius: 3px;
+    transform: scaleX(1); }
+  .zs_form .form_groupe {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative; }
+    .zs_form .form_groupe .form_icone {
+      position: absolute;
+      height: 20px;
+      float: left;
+      width: 10%;
+      background: none;
+      bottom: 0;
+      left: 0;
+      text-align: right;
+      margin-right:10px;
+      color: #fff; }
+      .zs_form .form_groupe .form_icone .icone {
+        padding: 12px; }
+    .zs_form .form_groupe .form_element {
+      position: relative;
+      width: 90%;
+      bottom: 0;
+      right: 0;
+      float: right; }
+  .zs_form .zs_checkbox, .zs_form .zs_radio {
+    display: none; }
+  .zs_form .zs_check {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    width: 8px;
+    height: 8px;
+    vertical-align: middle;
+    border-radius: 8px;
+    display: inline-block;
+    padding: 3px;
+    float: left;
+    cursor: pointer;
+    margin-right: 5px; }
+  .zs_form input:checked + .zs_check {
+    border-color: #229CDD; }
+  .zs_form input:checked + .zs_check::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    margin: 1px auto;
+    border-radius: 2px;
+    background: #229CDD; }
+  .zs_form input:not(:checked) + .zs_check::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    margin: 1px auto;
+    border-radius: 2px;
+    background: #eee; }
+  .zs_form .zs_switch {
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    width: 65px;
+    margin: 5px;
+    margin-top: -6px; }
+    .zs_form .zs_switch .switch_yes, .zs_form .zs_switch .switch_no {
+      float: left;
+      background: #229CDD;
+      width: 50%;
+      height: 20px;
+      display: inline-block;
+      padding: 5px 0;
+      text-align: center;
+      color: #fff;
+      font-size: 15ppx;
+      position: relative;
+      cursor: pointer; }
+    .zs_form .zs_switch .switch_yes {
+      border-radius: 5px 0 0 5px; }
+    .zs_form .zs_switch .switch_no {
+      border-radius: 0px 5px 5px 0px;
+      background: #f5f5f5;
+      color: #229CDD;
+      z-index: 1;
+      float: right;
+      top: -30px; }
+    .zs_form .zs_switch .switch_control {
+      float: left;
+      background: #eee;
+      width: 31.5px;
+      height: 30px;
+      margin-left: -10px;
+      margin-right: -10px;
+      border-radius: 0 3px 3px 0;
+      display: inline-block;
+      z-index: 2;
+      position: absolute;
+      margin-left: 0px;
+      text-align: center;
+      transform: translateX(0.1);
+      transition-duration: 0.1s; }
+      .zs_form .zs_switch .switch_control .icon_close {
+        display: block; }
+      .zs_form .zs_switch .switch_control .icon_check {
+        display: none; }
+      .zs_form .zs_switch .switch_control .icone {
+        margin-top: 7px;
+        font-size: 1em; }
+    .zs_form .zs_switch .switch_contenaire {
+      width: 130px;
+      display: inline-block;
+      float: left;
+      vertical-align: middle; }
+  .zs_form input:checked + .zs_switch .switch_control {
+    float: left;
+    background: #229CDD;
+    width: 31.5px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 3px 0px 0px 3px;
+    display: inline-block;
+    z-index: 2;
+    position: absolute;
+    margin-left: -30px;
+    text-align: center;
+    color: #fff;
+    transform: translateX(0.1);
+    transition-duration: 0.1s; }
+    .zs_form input:checked + .zs_switch .switch_control .icon_close {
+      display: none; }
+    .zs_form input:checked + .zs_switch .switch_control .icon_check {
+      display: block; }
+
+.check_form .zs_alert {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 20px;
+  font-size: 0.9em;
+  margin-top: 10px;
+  text-align: right;
+  border: 0px;
+  display: none; }
+  .check_form .zs_alert .alert_contenu {
+    border: 0px; }
+
+.zs_upload {
+  padding: 15px;
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  background: #f5f5f5;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+  transition-duration: 0.4s; }
+  .zs_upload input {
+    display: none; }
+  .zs_upload .icone {
+    font-size: 1em;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translate(-50%, 0);
+    color: #ccc;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50%;
+    padding: 15px;
+    transition-duration: 0.4s; }
+
+.upload_preview {
+  position: absolute;
+  min-width: 100px;
+  min-height: 20px;
+  bottom: 60px;
+  left: 1px;
+  background: #f5f5f5;
+  box-shadow: 0 12px 17px 0 rgba(0, 0, 0, 0.16), 0 12px 20px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  padding: 7px;
+  display: none; }
+
+.zs_upload:hover {
+  background: #eee; }
+  .zs_upload:hover .icone {
+    color: #229CDD; }
+  .zs_upload:hover .upload_preview {
+    display: block; }
+
+/*# sourceMappingURL=form.css.map */

@@ -1,0 +1,96 @@
+
+/* 
+    Created on : 13 mars 2017, 10:37:03
+    Author     : Frank Donald Fontcha
+*/
+
+.infos_bulle{
+    position: relative;
+    .bulle{
+        position: absolute; 
+        left: 0;
+        right: 0;
+        top: 40px;
+        background: #fff;
+        box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+        color: #229CDD;
+        padding: 8px;   
+        border-radius: 5px;
+        display: none;
+        font-size: 0.9em;
+        text-align: center;
+        width: auto;
+        z-index: 999999;
+        left: 50%;
+        transform: translate(-50%, 0);
+        opacity: 0.95;
+        transition-duration: 0.3s;
+
+        .pointing{
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, 0);
+            top: -10px;
+            padding: 5px;
+            background: #333;
+            border-radius:0;
+            opacity: 0.8;
+            //animation: pointerRotate 1s linear;
+            display: none;
+        }
+    }
+}
+.infos_bulle:hover{
+    .bulle{
+        animation: animeBule 0.2s linear;
+    }
+}
+
+@keyframes animeBule{
+    0%{
+        top: 10px;
+        color: #222;
+    }
+    100%{
+        top: 40px;
+        color: #229CDD;
+    }
+}
+
+.infos_block{
+    position: relative;
+
+    .block{
+        position: absolute; 
+        left: 0;
+        right: 0;
+        top: 40px;
+        background: #222;
+        box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+        color: #fff;
+        padding: 8px;  
+        padding-top: 20px; 
+        border-radius: 5px 5px 2px;
+        display: none;
+        font-size: 0.9em;
+        width: 230px;
+        z-index: 999999;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        .pointing{
+            position: fixed;
+            left: 5%;
+            transform: translate(-5%, 0);
+            top: -15px;
+            padding: 5px;
+            background: #222;
+            border-radius: 50% 50% 0;
+        }
+    }
+
+    .actif{
+        display: table;
+    }
+}
+

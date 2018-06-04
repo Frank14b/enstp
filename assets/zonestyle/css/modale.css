@@ -1,0 +1,67 @@
+/* 
+    Created on : 9 mars 2017, 07:04:51
+    Author     : Frank Donald Fontcha
+*/
+.zs_modale {
+  position: fixed;
+  width: 40%;
+  margin: auto;
+  left: 30%;
+  top: 5%;
+  transform: translateX(-50%, 0);
+  transform: translateY(-50%, 0);
+  min-height: 5%;
+  max-height: 90%;
+  background: #fff;
+  box-shadow: 0 12px 17px 0 rgba(0, 0, 0, 0.16), 0 12px 20px 0 rgba(0, 0, 0, 0.12);
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  vertical-align: middle;
+  z-index: 99999999;
+  transform: scale(0.2);
+  transition-duration: 0.3s;
+  display: none;
+  float: left;
+  overflow-y: auto;
+  margin-bottom: 3%;
+  border-radius: 3px; }
+
+  entete_modale{
+    position: fixed;
+    top: 0;
+    height: 100px;
+    right: 0;
+    left: 0;
+  }
+
+.modale_cover {
+  position: fixed;
+  background: #222;
+  opacity: 0.3;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  overflow-x: hiddden;
+  overflow-y: auto;
+  display: none; }
+
+@media only screen and (max-width: 500px) {
+  .zs_modale {
+    width: 98%;
+    left: 1%;
+    transform: translateX(-50%, 0); } }
+@media only screen and (max-width: 768px) and (min-width: 500px) {
+  .zs_modale {
+    width: 80%;
+    left: 10%;
+    transform: translateX(-50%, 0); } }
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .zs_modale {
+    width: 50%;
+    left: 25%;
+    transform: translateX(-50%, 0); } }
+
+/*# sourceMappingURL=modale.css.map */

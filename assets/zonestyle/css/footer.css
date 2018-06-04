@@ -1,0 +1,27 @@
+.zs_footer {
+  margin: -8px;
+  padding: 8px;
+  position: fixed;
+  float: left;
+  box-sizing: content-box;
+  width: 100%;
+  right: 0;
+  left: 0;
+  background: #229CDD;
+  border: 1px solid #0275D8;
+  color: #fff;
+  height: 10px;
+  bottom: 0;
+  z-index: 99; }
+
+.fond_bleu {
+  background: #0275D8;
+  border: 1px solid #0275D8;
+  color: #fff; }
+
+.fond_orange {
+  background: orange;
+  border: 1px solid orange;
+  color: #fff; }
+
+/*# sourceMappingURL=footer.css.map */

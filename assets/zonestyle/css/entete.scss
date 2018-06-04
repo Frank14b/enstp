@@ -1,0 +1,330 @@
+
+/* 
+    Created on : 7 mars 2017, 00:52:39
+    Author     : Frank Donald Fontcha
+*/
+
+.barre_navigation{
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #229CDD;
+    border: 1px solid #229CDD;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+
+    .bt_outil, .bt_menu{
+        display:none;
+    }
+
+    .barre_logo{
+        position: absolute;
+        width: 20%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: none;
+        box-sizing: border-box;
+        padding: 15px;
+        text-align: center;
+
+        a{
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #fff;
+            vertical-align:middle;
+            line-height: 40px;
+        }
+    }
+
+    .barre_menu{
+        position: absolute;
+        width: 80%;
+        top: -2px;
+        right: 7.5px;
+        bottom: -0.5px;
+        background: #229CDD;
+        border-radius: 0.5px;
+
+        .barre_outil{
+            position: relative;
+            top: -0px;
+            height: 0;
+            right: 0;
+
+            .zs_form{ 
+                position:fixed;
+                width: 50%;
+                margin-left: 30%;
+                height: 52px;
+                top: 35px;
+                background : #fff;
+                box-sizing: border-box;
+                z-index: 999;
+                transform: translate(-50%, 0);
+                border-radius: 2px;
+                display: none;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+
+                .form_element{
+                    width : 100%;
+                    position: relative;
+                    top:0;
+                    bottom:0;
+                    left:0;
+                    height: 100%;
+
+                    .zs_label{
+                        margin-top:-30px;
+                    }
+                }
+            }
+
+            .is_hover{
+                z-index: 99999999;
+                box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+            }
+        }
+
+        .zs_menu{
+
+            text-align: center;
+            margin-top: 12px;
+            background: #229CDD; 
+            padding: 8px;
+            padding-top:0px;
+            padding-bottom:0px;
+            text-transform: capitalize;
+
+            .element_menu{  
+                text-decoration: none;
+                border: 0px;
+                padding:12px;
+                border-radius: 2px;
+                min-width: 15px;
+                min-height: 8px;
+                background: #229CDD;
+                outline: none;
+                margin: 8px;
+                color: #fff;
+                text-transform: uppercase;
+                display: inline-block;
+                font-size: 0.65em;
+                cursor: pointer;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+                position: relative;
+
+                .lien_element{
+                    text-decoration: none;
+                    color: #fff;
+                    margin-top: 3.5px;
+                    padding-bottom: 3px;
+                    border-bottom: 0px solid #229CDD;
+                }
+            }
+
+            /*.element_menu:after{
+                content: '';
+                background: #fff;
+                transform: scaleX(0.1);
+                transition: transform 0.3s;
+                width: 100%;
+                position: absolute;
+                opacity: 0.2;
+                border-radius: 25px;
+            }
+
+            .element_menu:hover:after{
+                transform: scaleX(1);
+                border-radius: 2px;
+                bottom: 0;
+                left: 0;
+                top:0;
+            }*/
+
+            .element_menu:hover{
+                //background: #fff;
+                .lien_element{ 
+                    color: #eee;
+                }
+            }
+
+            .element_actif{
+                background: #fff;
+                .lien_element{
+                    color: #229CDD;
+                    padding-bottom: 3px;
+                }
+            }
+            .element_actif:hover{
+                background: #fff;
+                .lien_element{
+                    color: #229CDD;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 900px){
+
+        .bt_outil, .bt_menu{
+            display:block;
+        }
+
+        .barre_logo{
+            width: 40%;
+        }
+        .barre_menu{
+
+            width: 50%;
+
+            .barre_outil{
+                text-align: center;
+                background-color: #fff; 
+                text-transform: capitalize;
+                display:none;
+                position: fixed;
+                margin: 0 auto;
+                top: 80px;
+                right: 10%;
+                width: 80%;
+                float: right;
+                box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+
+                .zs_form{ 
+                    position:fixed;
+                    width: 50%;
+                    margin-left: 30%;
+                    height: 52px;
+                    top: 35px;
+                    background : #fff;
+                    box-sizing: border-box;
+                    z-index: 999;
+                    transform: translate(-50%, 0);
+                    border-radius: 2px;
+                    display: none;
+                    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+
+                    .form_element{
+                        width : 100%;
+                        position: relative;
+                        top:0;
+                        bottom:0;
+                        left:0;
+                        height: 100%;
+
+                        .zs_label{
+                            margin-top:-30px;
+                        }
+                    }
+                }
+
+                .is_hover{
+                    z-index: 99999999;
+                    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+                }
+            }
+            .zs_menu{
+                text-align: center;
+                background: #fff; 
+                text-transform: capitalize;
+                display: none;
+                position: fixed;
+                margin: 0 auto;
+                top: 80px;
+                right: 10%;
+                width: 80%;
+                box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+
+                .element_menu{  
+                    text-decoration: none;
+                    border: 0px;
+                    padding:12px;
+                    border-radius: 2px;
+                    min-width: 15px;
+                    min-height: 8px;
+                    background: #229CDD;
+                    outline: none;
+                    margin: 8px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    font-size: 0.65em;
+                    cursor: pointer;
+                    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+                    position: relative;
+
+                    .lien_element{
+                        text-decoration: none;
+                        color: #fff;
+                        margin-top: 3.5px;
+                        padding-bottom: 3px;
+                        border-bottom: 0px solid #229CDD;
+                    }
+                }
+
+                .element_menu:hover{
+                    //background: #fff;
+                    .lien_element{ 
+                        color: #eee;
+                    }
+                }
+
+                .element_actif{
+                    background: #fff;
+                    .lien_element{
+                        color: #229CDD;
+                        padding-bottom: 3px;
+                    }
+                }
+                .element_actif:hover{
+                    background: #fff;
+                    .lien_element{
+                        color: #229CDD;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.barre_rouge{
+    background: #ff4500;
+    border: 1px solid #ff4500;
+
+    .barre_menu{
+        background: #ff4500;
+
+        .zs_menu{
+            background: #ff4500; 
+
+            .element_menu{
+                background: #ff4500;
+
+                .lien_element{
+                    border-bottom: 3px solid #ff4500;
+                }
+            }
+            .element_menu:hover{
+                .lien_element{ 
+                    color: #eee;
+                }
+            }
+
+            .element_actif{
+                .lien_element{
+                    border-bottom: 3px solid #fff;
+                    padding-bottom: 3px;
+                }
+            }
+            .element_actif:hover{
+                .lien_element{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+

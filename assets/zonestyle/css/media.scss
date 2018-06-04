@@ -1,0 +1,30 @@
+
+/* 
+    Created on : 14 mars 2017, 16:07:05
+    Author     : Frank Donald Fontcha
+*/
+
+.image_fluid{
+    position: relative;
+    width: 100%;
+}
+.image_cercle{
+    border-radius: 50%;
+    position: relative;
+    width: 100%;
+}
+.image_arrondis{
+    border-radius: 25px;
+    position: relative;
+    width: 100%;
+}
+.image_zoom{
+    transform: scale(1);
+    transition-duration: 0.3s;
+    z-index: 2;
+}
+.image_zoom:hover{
+    transform: scale(1.2);
+    z-index: 1;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}

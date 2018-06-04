@@ -1,0 +1,358 @@
+
+/* 
+    Created on : 7 mars 2017, 02:44:15
+    Author     : Frank Donald Fontcha
+*/
+
+.zs_form{
+    position: relative;
+    width: 100%;
+    float: left;
+    border-radius: 2px;
+    margin: -8px;
+    padding: 8px;
+
+    .form_element{
+        float: left;
+        width: 100%;
+        position: relative;
+        padding: 0;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        border-radius: 2px;
+        height: 72px;
+        box-content: border-box;
+
+        .zs_label{
+            float: left;
+            width: 100%;
+            position: relative;
+            padding-top: 25px;
+            margin: 0px;
+            border-radius: 2px;
+            height: 16px;
+            font-size: 16px;
+            margin: 0;
+            transform: translateY(22px);
+            color: #666;
+            transition: transform 0.3s, font-size 0.3s;
+        }
+        .zs_input{
+            float: left;
+            width: 100%;
+            position: relative;
+            padding: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 2px;
+            border: 0px;
+            background-color: none;
+            line-height: 16px;
+            -webkit-appearance: none;
+            outline: none;
+            font-size: 16px;
+            background: transparent;
+            transform: translateY(8px);
+        }
+
+        .zs_file{
+            visibility: hidden;
+        }
+
+        .file{
+            cursor: pointer;
+        }
+
+        .input_file{
+            margin-top: -20px;
+            margin-left: 5%;
+            color: #333;
+        }
+    }
+
+    .form_element::before{
+        content: '';
+        height: 1px;
+        background: #eee;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0.5, 1);
+    }
+
+    .form_element::after{
+        content: '';
+        height: 1.5px;
+        background: #229CDD;
+        transform: scaleX(0);
+        transition: transform 0.3s;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .is_focus{
+        .zs_label{
+            transform: translateY(10px);
+            font-size: 13px;
+            color: #3B6998;
+        }
+    }
+
+    .is_focus::after{
+        transform: scaleX(0.7);
+    }
+
+    .is_focus::before{
+        background: #eee;
+        color: #fff;
+        height: 30px;
+        border-radius: 3px;
+        transform: scaleX(1);
+    }
+
+    .form_groupe{
+        float: left;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+
+        .form_icone{
+            position: absolute;
+            height: 20px;
+            float: left;
+            width: 10%;
+            background:none;
+            bottom: 0;
+            left: 0;
+            color: #229CDD;
+
+            .icone{
+                padding: 12px;
+            }
+        }
+
+        .form_element{
+            position: relative;
+            width: 90%;
+            bottom: 0;
+            right: 0;
+            float: right;
+        }
+    }
+
+    .zs_checkbox, .zs_radio{
+        display: none;
+    }
+
+    .zs_check{
+        background-color: #fff;
+        border: 2px solid #ddd;
+        width: 8px; height: 8px;
+        vertical-align: middle;
+        border-radius: 8px;
+        display: inline-block;
+        padding: 3px;
+        float: left;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    input:checked + .zs_check{
+        border-color: #229CDD;        
+    }
+
+    input:checked + .zs_check::after{
+        content: "";
+        display:block;
+        width:5px; height: 5px;
+        margin: 1px auto;
+        border-radius: 2px;
+        background: #229CDD;
+    }
+    
+    input:not(:checked) + .zs_check::after{
+        content: "";
+        display:block;
+        width:5px; height: 5px;
+        margin: 1px auto;
+        border-radius: 2px;
+        background: #eee;
+    }
+
+    .zs_switch{
+        display: inline-block;
+        vertical-align: middle;
+        float:left;
+
+        .switch_yes, .switch_no{
+            float: left;
+            background: #229CDD;
+            width: 50%;
+            height: 20px;
+            display: inline-block;
+            padding: 5px 0;
+            text-align: center;
+            color: #fff;
+            font-size: 15ppx;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .switch_yes{
+            border-radius: 5px 0 0 5px;
+        }
+        .switch_no{
+            border-radius: 0px 5px 5px 0px;
+            background: #f5f5f5;
+            color: #229CDD;
+            z-index: 1;
+            float: right; 
+            top: -30px;
+        }
+
+        .switch_control{
+            float: left;
+            background: #eee;
+            width: 31.5px;
+            height: 30px;
+            margin-left: -10px;
+            margin-right: -10px;
+            border-radius:  0 3px 3px 0;
+            display: inline-block;
+            z-index: 2;
+            position: absolute;
+            margin-left: 0px;
+            text-align: center;
+            transform: translateX(0.1);
+            transition-duration:0.1s;
+
+            .icon_close{
+                display: block;
+            }
+            .icon_check{
+                display: none;
+            }
+
+            .icone{
+                margin-top: 7px;
+                font-size: 1em;
+            }
+        }
+
+        .switch_contenaire{
+            width:130px;
+            display: inline-block;
+            float: left;
+            vertical-align: middle;
+        }
+        width: 65px;
+        margin: 5px;
+        margin-top: -6px;
+    }
+
+    input:checked + .zs_switch{
+        .switch_control{
+            float: left;
+            background: #229CDD;
+            width: 31.5px;
+            height: 30px;
+            margin-left: -10px;
+            margin-right: -10px;
+            border-radius:  3px 0px 0px 3px;
+            display: inline-block;
+            z-index: 2;
+            position: absolute;
+            margin-left: -30px;
+            text-align: center;
+            color: #fff;
+            transform: translateX(0.1);
+            transition-duration:0.1s;
+
+            .icon_close{
+                display: none;
+            }
+            .icon_check{
+                display: block;
+            }
+        }
+    }
+}
+
+.check_form{
+    .zs_alert{
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 20px;
+        font-size: 0.9em;
+        margin-top: 10px;
+        text-align: right;
+        border: 0px;
+        display:none;
+
+        .alert_contenu{
+            border: 0px;
+        }
+    }
+}
+
+.zs_upload{
+    input{
+        display: none;
+    }
+    
+    padding: 15px;
+    height: 25px;
+    width: 25px;
+    border-radius: 5px;
+    background: #f5f5f5;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    
+    .icone{
+        font-size: 1em;
+        margin: 0 auto;
+        position: absolute;
+        left:50%;
+        top: 12%;
+        transform: translate(-50%, 0);
+        color: #ccc ;
+        cursor: pointer;
+        background: #fff;
+        border-radius: 50%;
+        padding: 15px;   
+        transition-duration: 0.4s;
+    }
+    
+    transition-duration: 0.4s;
+}
+
+.upload_preview{
+    position: absolute;
+    min-width: 100px;
+    min-height: 20px;
+    bottom: 60px;
+    left: 1px;
+    background: #f5f5f5;
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    border-radius: 2px;
+    padding: 7px;
+    display: none;
+}
+
+.zs_upload:hover{
+    background: #eee;
+    
+    .icone{
+        color: #229CDD;
+    }
+    
+    .upload_preview{
+        display: block;
+    }
+}

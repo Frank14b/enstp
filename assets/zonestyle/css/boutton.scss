@@ -1,0 +1,148 @@
+
+/* 
+    Created on : 8 mars 2017, 15:22:36
+    Author     : Frank Donald Fontcha
+*/
+
+.zs_boutton{
+    border: 0px;
+    padding:12px;
+    border-radius: 2px;
+    min-width: 15px;
+    min-height: 8px;
+    float:left;
+    background: #229CDD;
+    outline: none;
+    margin: 8px;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 0.65em;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    position: relative;
+
+    .icone{
+        margin-right: 5px;
+    }
+}
+
+
+.zs_boutton:after{
+    content: '';
+    background: #fff;
+    transform: scaleX(0.1);
+    transition: transform 0.3s;
+    width: 100%;
+    position: absolute;
+    opacity: 0.2;
+    border-radius: 2px;
+}
+
+.bt_rond:after{
+    border-radius: 50%;
+}
+
+.zs_boutton:hover:after{
+    transform: scaleX(1);
+    bottom: 0;
+    left: 0;
+    top:0;
+}
+
+.bt_rond{   
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    .icone{
+        margin-right: 0px;
+    }
+}
+
+.bt_toggle{
+    float: left; 
+    width: auto;
+    position: relative;
+    height: auto;
+    
+    .zs_boutton{
+        display: inline-block;
+        margin-right: 0px;
+        border-radius: 2px 0 0 2px;
+        position: relative;
+    }
+
+    .open_toggle{
+        border: 0px;
+        padding:12px;
+        border-radius: 0 2px 2px 0;
+        min-width: 15px;
+        min-height: 8px;
+        float:left;
+        background: #229CDD;
+        outline: none;
+        margin: 8px;
+        margin-left: 0px;
+        color: #fff;
+        text-transform: uppercase;
+        display: inline-block;
+        font-size: 0.85em;
+        cursor: pointer;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+        position: relative;
+
+    }
+    
+    .element_toggle{
+        float: left;
+        position: absolute;
+        top: 50px;
+        left: 8px;
+        right: 8px;
+        background: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+        padding: 8px;
+        z-index: 99;
+        display: none;
+    }
+}
+
+.to_top{
+    position: fixed;
+    bottom: 150px;
+    right: 30px;
+    opacity: 0.5;
+    z-index: 99999999;
+    background: #229CDD;
+}
+
+.to_bottom{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    opacity: 0.5;
+    z-index: 99999999;
+    background: #229CDD;
+}
+
+.bt_arrondis{
+    border-radius: 25px;
+}
+
+.bt_rouge{
+    background: #ff4500;
+}
+.bt_vert{
+    background: seagreen;
+}
+
+.bt_facebook{
+    background: #3B6998;
+}
+.bt_google{
+    background: #ff4500;
+}
+.bt_twitter{
+    background: #229CDD;
+}
+
