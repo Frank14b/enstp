@@ -17,6 +17,10 @@ class Pages extends CI_Controller
 
             $this->load->library('email');
             $this->load->model('users');
+            $this->load->model('documents');
+            $this->load->model('typedoc');
+            $this->load->library('user_agent');
+            $this->load->library('pagination');
             //$this->load->model('Langue');
 
             if (isset($_POST['sendsms'])) {
