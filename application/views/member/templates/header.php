@@ -371,7 +371,7 @@ $CI = &get_instance();
               if($CI->users->getOneData($_SESSION['ens_userid'], "role") == "Admin"){
             ?>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link btn" href="<?=base_url()?>dashboard/mouchard">
+              <a class="mdc-drawer-link btn <?php if($title=="mouchard") echo'btn-primary' ?>" href="<?=base_url()?><?=$_SESSION['abbr_lang'] ?? 'fr' ?>/dashboard/mouchard">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
                 Mouchard
               </a>
@@ -478,6 +478,7 @@ $CI = &get_instance();
               </ul>
             </div>
           </div>
+
           <div class="mdc-menu-anchor">
             <a href="#" class="mdc-toolbar__icon mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
               <i class="material-icons">widgets</i>

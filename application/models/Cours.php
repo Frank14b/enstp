@@ -10,7 +10,6 @@ class cours extends CI_Model
     public $libeller;
     public $details;
     public $status;
-    public $code;
     public $dates;
 
     public function __construct()
@@ -126,18 +125,14 @@ class cours extends CI_Model
         }
     }
 
-    public function insertcours($code)
+    public function insertcours($code, $id)
     {
-        $this->idPays = $_POST['pays']; // please read the below note
-        $this->passcours = sha1($_POST['password']);
-        $this->datecours = date("Y-m-d");
-        $this->logincours = $_POST['login'];
-        $this->nomcours = $_POST['nom'];
-        $this->prenomcours = $_POST['prenom'];
-        $this->role = $_POST['role'];
-        $this->numerocours = $_POST['tel'];
-        $this->emailcours = $_POST['email'];
-        $this->matricule = 1;
+        $this->Mat_id = $_POST['Mat_id']; // please read the below note
+        $this->dates = date("Y-m-d");
+        $this->Typ_id = $_POST['Typ_id'];
+        $this->libeller = $_POST['libeller'];
+        $this->details = $_POST['details'];
+        $this->Use_id = $id;
         $this->status = $code;
 
         if ($this->db->insert("cours", $this)) {

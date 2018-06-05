@@ -1,3 +1,6 @@
+<?php
+  $_POST['M-Details'] = "Acces a la zone des Exercices";
+?>
 
     <div class="page-wrapper mdc-toolbar-fixed-adjust">
       <main class="content-wrapper">
@@ -29,6 +32,14 @@ $CI = &get_instance();
 $nbr = $CI->exos->countAllexos();
 
 $perPage = 16;
+
+if (isset($delete)) {
+  $details = 0;
+}
+
+if (!isset($details)) {
+  $details = 0;
+}
 
 if($details){
   $ini = $details; 

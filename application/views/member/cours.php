@@ -159,8 +159,8 @@ $CI = &get_instance();
                   <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUsers">Nouveau Cours</button>
                 </div>
                 
-                <div class="row">
-                <div class="col-md-7" style="margin-top:25px; margin-left:0%">
+                <div class="row" style="background:#f5f5f5">
+                <div class="col-md-7" style="margin-top:25px; margin-left:0%;">
                 <div class="row">
                       <?php 
                       foreach($val as $row):
@@ -197,9 +197,7 @@ $CI = &get_instance();
                     </div>
                     </div>
                     
-                    <div class="col-md-1"></div>
-
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                       <div class="row">
                           <div class="col-md-12">
                               <h5></h5>
@@ -268,20 +266,78 @@ $CI = &get_instance();
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form>
-                    <div class="mdc-layout-grid">
+                    <form method="POST" class="addElemt">
+                    <div class="col-md-12">
                     <div class="row"><div class="icon"><h5><i class="fa fa-user"></i> AJouter un Cours</h5><br></div>
-            					<div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-                          <label class="mdc-text-field w-100">
-                            <input type="text" class="mdc-text-field__input">
-                            <span class="mdc-text-field__label">Titre</span>
-                            <div class="mdc-text-field__bottom-line"></div>
-                          </label>
-            						</div>
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-                        
-            						</div>
+                    <div class="col-md-12">
+                                        <label class="mdc-text-field w-100">
+                                            <input type="text" name="libeller" required class="mdc-text-field__input">
+                                            <span class="mdc-text-field__label">Intituler</span>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                            <input type="hidden" name="addCours"/> 
+                                        </label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="mdc-text-field w-100">
+                                            <textarea required name="details" class="mdc-text-field__input"></textarea>
+                                            <span class="mdc-text-field__label">Details</span>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label class="mdc-text-field w-100">Type de Cours
+                                            <select name="Typ_id" class="mdc-text-field__input">
+                                                <option  value=""></option>
+                                                <?php
+                                                foreach ($CI->typecours->getAlltypecours() as $typ):
+                                                    ?>
+                                                    <option  value="<?= $typ->id ?>">
+                                                        <?= $typ->libeller ?>
+                                                    </option>
+                                                    <?php
+                                                endforeach;
+                                                ?>
+                                            </select>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="mdc-text-field w-100">Niveau
+                                            <select name="Niv_id" class="mdc-text-field__input gNiveau">
+                                                <option  value=""></option>
+                                                <?php
+                                                foreach ($CI->niveau->getAllniveau() as $typ):
+                                                    ?>
+                                                    <option  value="<?= $typ->id ?>">
+                                                        <?= $typ->libeller ?>
+                                                    </option>
+                                                    <?php
+                                                endforeach;
+                                                ?>
+                                            </select>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="mdc-text-field w-100">Filieres
+                                            <select name="Fil_id" class="mdc-text-field__input gFiliere">
+
+                                            </select>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label class="mdc-text-field w-100">Matieres
+                                            <select name="Mat_id" class="mdc-text-field__input gMatiere">
+
+                                            </select>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                        </label>
+                                    </div>
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                           <button class="mdc-button mdc-button--raised w-100" data-mdc-auto-init="MDCRipple">
                             Enregistrer

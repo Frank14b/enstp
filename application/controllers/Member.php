@@ -124,6 +124,7 @@ class Member extends CI_Controller {
             $this->addExercice();
             $this->addRubr();
             $this->addActu();
+            $this->addCours();
 
             if (isset($_POST['retriveMess'])) {
                 $this->retriveMess();
@@ -390,6 +391,18 @@ class Member extends CI_Controller {
     public function addActu() {
         if (isset($_POST['addActu'])) {
             $val = $this->actualites->insertactualites(0);
+            if ($val != false) {
+                echo 1;
+            } else {
+                echo 0;
+            }
+            die();
+        }
+    }
+
+    public function addCours(){
+        if (isset($_POST['addCours'])) {
+            $val = $this->cours->insertcours(0, $_SESSION['ens_userid']);
             if ($val != false) {
                 echo 1;
             } else {
