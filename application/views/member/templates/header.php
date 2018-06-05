@@ -381,6 +381,13 @@ $CI = &get_instance();
             ?>
 
             <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-drawer-link btn <?php if($title=="abonnements") echo'btn-primary' ?>" href="<?=base_url()?><?=$_SESSION['abbr_lang'] ?? 'fr' ?>/dashboard/abonnements">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
+                Abonnements
+              </a>
+            </div>
+
+            <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link btn <?php if($title=="forum") echo'btn-primary' ?>" href="<?=base_url()?><?=$_SESSION['abbr_lang'] ?? 'fr' ?>/dashboard/forum">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
                 Forum

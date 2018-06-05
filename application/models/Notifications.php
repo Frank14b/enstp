@@ -114,12 +114,14 @@ class notifications extends CI_Model
         }
     }
 
-    public function insertnotifications($code)
+    public function insertnotifications($code, $liens, $user)
     {
         $this->libeller = $_POST['libeller']; // please read the below note
-        $this->details = $_POST['details'];
+        $this->autres = $_POST['autres'];
         $this->dates = date("Y-m-d");
         $this->status = $code;
+        $this->liens = $liens;
+        $this->Use_id = $user;
 
         if ($this->db->insert("notifications", $this)) {
             return true;
