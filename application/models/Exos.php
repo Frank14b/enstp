@@ -10,6 +10,7 @@ class exos extends CI_Model
     public $details;
     public $status;
     public $dates;
+    public $Use_id;
 
     public function __construct()
     {
@@ -121,7 +122,7 @@ class exos extends CI_Model
         }
     }
 
-    public function insertexos($file)
+    public function insertexos($file, $user)
     {
         $this->Typ_id = $_POST['Typ_id']; // please read the below note
         $this->dates = date("Y-m-d");
@@ -131,6 +132,7 @@ class exos extends CI_Model
            $this->Mat_id = $_POST['Mat_id'];
         }
         $this->status = 0;
+        $this->Use_id = $user;
 
         if ($this->db->insert("exos", $this)) {
             return true;
@@ -291,6 +293,17 @@ class exos extends CI_Model
             return $query->result();
         } else {
             return false;
+        }
+    }
+
+    public function getfirstDatabyExos($id, $value)
+    {
+        if($this->getexosByID($id) == false){
+            return 1;
+        }else{
+            foreach ($this->getexosByID($id) as $row):
+                return $row->$value;
+            endforeach;
         }
     }
 

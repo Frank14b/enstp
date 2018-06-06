@@ -26,9 +26,18 @@ $CI = &get_instance();
               </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 card">
               <?php 
 
+if(isset($ex)){
+  ?>
+    <div class="col-md-12">
+     <div class="col-md-12"><a href="<?=base_url()?><?=$_SESSION['abbr_lang'] ?? 'fr' ?>/dashboard/exercices" class="btn btn-warning btn-sm">Retour</a></div>
+     <div class="col-md-12" style="background:#fff; position:relative; height:auto; border:0px; margin-top:10px;" id="ob"></div>
+     </div>
+  <?php
+
+}else{
 $nbr = $CI->exos->countAllexos();
 
 $perPage = 16;
@@ -91,7 +100,7 @@ if($details){
               <div class="mdc-card card--with-avatar">
                 <section class="mdc-card__primary card">
                   <div class="card__avatar"><img src="" alt=""></div>
-                  <h1 class="mdc-card__title"><a href="<?=base_url().$_SESSION['abbr_lang']?>/dashboard/exercices/<?=$row->id?>/v"><?=substr($row->libeller, 0, 20)?></a></h1>
+                  <h1 class="mdc-card__title"><a href="<?=base_url().$_SESSION['abbr_lang']?>/dashboard/exercices/<?=$row->id?>/ex"><?=substr($row->libeller, 0, 20)?></a></h1>
                   <h2 class="mdc-card__subtitle"><?=substr($CI->matieres->getOneData($row->Mat_id, "libeller"), 0, 20)?>..
                   <?php if(empty($row->Mat_id))echo'Aucune Matiere associer';?></h2>
                   <h2 class="mdc-card__subtitle"><?=$CI->typeexos->getOneData($row->Typ_id, 'libeller') ?></h2>
@@ -99,8 +108,13 @@ if($details){
                 </section>
                 <div class="mdc-card__social-footer bg-blue" style="background:#ddd;"> 
                   <div class="row">
-                  <center><a href="" class="btn btn-primary btn-sm" style="margin-top:-15px; margin-bottom:-15px;"><i class="mdi mdi-pencil"></i></a></center>
-                    <center><a href="<?=base_url().$_SESSION['abbr_lang']?>/dashboard/exercices/<?=$row->id?>/v" class="btn btn-default btn-sm" style="margin-top:-15px; margin-bottom:-15px;"><i class="mdi mdi-eye"></i></a></center>
+                    <?php if($_SESSION["ens_userid"] == $row->Use_id){
+                      ?>
+                      <center><a href="" class="btn btn-primary btn-sm hidden" style="margin-top:-15px; margin-bottom:-15px;"><i class="mdi mdi-pencil"></i></a></center>
+                      <?php
+                    }
+                    ?>
+                    <center><a href="<?=base_url().$_SESSION['abbr_lang']?>/dashboard/exercices/<?=$row->id?>/ex" class="btn btn-default btn-sm" style="margin-top:-15px; margin-bottom:-15px;"><i class="mdi mdi-eye"></i></a></center>
                   </div>
                 </div>
               </div>
@@ -116,6 +130,7 @@ if($details){
               </div>
                     <?php 
                 }
+              }
               ?>
             </div>
 
@@ -135,7 +150,7 @@ if($details){
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form method="post" id="addSupportt" style="margin-top:-37px;">
+                    <form method="post" id="addSuppor" style="margin-top:-37px;" enctype="multipart/form-data">
                     <div class="row">
                     <div class="col-md-12"><div class="icon"></div>
             					<div class="mdc-layout-grid">

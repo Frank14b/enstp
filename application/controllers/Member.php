@@ -288,7 +288,7 @@ class Member extends CI_Controller {
                 die();
             }
 
-            if ($this->exos->insertexos($file) == true) {
+            if ($this->exos->insertexos($file, $_SESSION['ens_userid']) == true) {
                 echo 0;
                 die();
             } else {

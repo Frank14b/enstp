@@ -146,6 +146,52 @@ if (isset($lists)) {
 
     <?php
 }
+
+if (isset($ex)) {
+    ?>
+        var options = {
+            fallbackLink: false,
+            height: "1000px",
+
+            pdfOpenParams: {
+                view: 'FitH',
+                scrollbars: '0',
+                statusbar: '0',
+                navpanes: '0',
+                pagemode: 'thumbs',
+    <?php
+    if ($roleUser != "Admin") {
+        ?> toolbar: '0', <?php
+    }
+    ?>
+            }
+        };
+    <?php
+    if ($roleUser == "Postulant" || $roleUser == "Admin") {
+        $offres = "postulant";
+        $file = "details";
+        if ($this->uri->segment(3) == "offres") {
+            $offres = "offres";
+            $file = "details";
+        }
+    } else {
+        $offres = "offres";
+        $file = "details";
+
+        if ($this->uri->segment(3) == "cv") {
+            $offres = "postulant";
+            $file = "details";
+        }
+    }
+    ?>
+        function loadPDF(link)
+        {
+            new PDFObject.embed("<?= base_url() ?>assets/exos/" + link, "#ob", options);
+        }
+        loadPDF("<?= $CI->exos->getfirstDatabyExos($ex, 'details'); ?>")
+
+    <?php
+}
 ?>
     $(document).ready(function () {
 
