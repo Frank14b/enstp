@@ -273,6 +273,12 @@ $CI = &get_instance();
     .visible {
         display: block;
     }
+
+    @media only screen and (max-width: 800px){
+      .small-hide{
+        display:none;
+      }
+    }
 </style>
 
 <style>
@@ -289,7 +295,7 @@ $CI = &get_instance();
 
   <div class="body-wrapper">
     <!-- partial:partials/_sidebar.html -->
-    <aside class="mdc-persistent-drawer mdc-persistent-drawer--open" style="bottom:0;">
+    <aside class="mdc-persistent-drawer mdc-persistent-drawer--open zone-menu" style="bottom:0;z-index:9999;">
       <nav class="mdc-persistent-drawer__drawer card">
         <div class="mdc-persistent-drawer__toolbar-spacer" style="background:#fff">
           <a href="<?=base_url()?>assets/admin/index.html" class="brand-logo">
@@ -466,12 +472,12 @@ $CI = &get_instance();
           <a href="#" class="menu-toggler material-icons mdc-toolbar__menu-icon">menu</a>
           <span class="mdc-toolbar__input">
             <div class="mdc-text-field">
-              <input type="text" class="mdc-text-field__input" id="css-only-text-field-box" placeholder="Search anything...">
+              <input type="text" class="mdc-text-field__input small-hide" id="css-only-text-field-box" placeholder="Search anything...">
             </div>
           </span>
         </section>
         <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
-          <div class="mdc-menu-anchor">
+          <div class="mdc-menu-anchor small-hide">
             <a href="#" class="mdc-toolbar__icon toggle mdc-ripple-surface" data-toggle="dropdown" toggle-dropdown="notification-menu" data-mdc-auto-init="MDCRipple">
               <i class="material-icons">notifications</i>
               <span class="dropdown-count">3</span>
@@ -487,14 +493,14 @@ $CI = &get_instance();
           </div>
 
           <div class="mdc-menu-anchor">
-            <a href="#" class="mdc-toolbar__icon mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
+            <a href="#" class="mdc-toolbar__icon mdc-ripple-surface small-hide" data-mdc-auto-init="MDCRipple">
               <i class="material-icons">widgets</i>
             </a>
           </div>
           <div class="mdc-menu-anchor mr-1">
             <a style="color:#fff" href="<?=base_url()?>assets/admin/#" class="mdc-toolbar__icon toggle mdc-ripple-surface" data-toggle="dropdown" toggle-dropdown="logout-menu" data-mdc-auto-init="MDCRipple">
-            <img src="<?=base_url()?>assets/profile/<?=$CI->users->getOneData($_SESSION['ens_userid'], 'photo')?>" class="img-circle" style="width:30px; height:30px; margin-right:15px; margin-top:-7px; float:left;"/>  
-            <b><?=$CI->users->getOneData($_SESSION['ens_userid'],'prenom')?></b>
+            <img src="<?=base_url()?>assets/profile/<?=$CI->users->getOneData($_SESSION['ens_userid'], 'photo')?>" class="img-circle small-hide" style="width:30px; height:30px; margin-right:15px; margin-top:-7px; float:left;"/>  
+            <b class="small-hide"><?=$CI->users->getOneData($_SESSION['ens_userid'],'prenom')?></b>
             <i class="material-icons">more_vert</i>
             </a>
             <div class="mdc-simple-menu mdc-simple-menu--right" tabindex="-1" id="logout-menu">

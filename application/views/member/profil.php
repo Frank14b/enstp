@@ -41,7 +41,7 @@ $CI = &get_instance();
                 <div class="col-md-12" style="margin-bottom:15px; position:relative">
                    <div class="zs_cards card_vert" style="margin-bottom:20px">
                          <div class="card_image" >
-                         <img src="<?=base_url()?>assets/img/profiles/<?php echo $CI->users->getOneData($_SESSION['ens_userid'], 'photo') ?? 'avatar6.png' ?>" alt="VIRTEK" class="" style="border-radius:0px;"/>
+                         <img src="<?=base_url()?>assets/img/profiles/<?php echo $CI->users->getOneData($_SESSION['ens_userid'], 'photo') ?? 'avatar6.png' ?>" alt="VIRTEK" class="" style="border-radius:0px; width:75%;"/>
                          </div>
                          <div class="card_date">
                              <span class="date_day"><?=explode("-", $CI->users->getOneData($_SESSION['ens_userid'], 'dates'))[2] ?? ""?></span>
@@ -63,6 +63,41 @@ $CI = &get_instance();
                     </div>
                 </div>
              </div>
+
+             <div class="list-group">
+                <div class="col-md-12" style="margin-bottom:15px; position:relative">
+                            <form method="post" class="addElemt">
+                                 <input type="hidden" name="editUsers2"/>
+                                    <div class="mdc-layout-grid__cell stretch-card">
+                                        <label class="mdc-text-field w-100">Mon Niveau
+                                            <select name="Niv_id" required class="mdc-text-field__input gNiveau form-control">
+                                                <option  value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'Niv_id')?>"><?=$CI->niveau->getOneData($CI->users->getOneData($_SESSION['ens_userid'], 'Niv_id'),"libeller")?></option>
+                                                <?php
+                                                foreach ($CI->niveau->getAllniveau() as $typ):
+                                                    ?>
+                                                    <option  value="<?= $typ->id ?>">
+                                                        <?= $typ->libeller ?>
+                                                    </option>
+                                                    <?php
+                                                endforeach;
+                                                ?>
+                                            </select>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                                        <label class="mdc-text-field w-100">Ma Filiere
+                                            <select name="Fil_id" required class="mdc-text-field__input gFiliere form-control">
+                                                <option value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'Fil_id')?>"><?=$CI->filieres->getOneData($CI->users->getOneData($_SESSION['ens_userid'], 'Fil_id'), "libeller")?></option>
+                                            </select>
+                                            <div class="mdc-text-field__bottom-line"></div>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm pull-right">Confirmer</button>
+                                </form>
+                </div>
+             </div>
                           </div>
                       </div>
                   </div>
@@ -76,9 +111,7 @@ $CI = &get_instance();
 			                        <li class="active">
 			                            <a href="#tab_1-1" class="btn btn-primary btn-sm" data-toggle="tab"><i class="fa fa-user"></i>&nbsp; Generale</a>
 			                        </li>
-			                        <li>
-			                            <a href="#tab_2-2" class="btn btn-success btn-sm" data-toggle="tab">Complementaire</a>
-			                        </li>
+			                        
 			                        <li>
 			                            <a href="#tab_3-2" class="btn btn-primary btn-sm" data-toggle="tab"><i class="fa fa-eye"></i>&nbsp; Securité</a>
 	                                </li>
@@ -88,25 +121,26 @@ $CI = &get_instance();
 			                        <div class="tab-pane active" id="tab_1-1"><br>
 			                            <h5>Informations Générales :</h5><br>
 
-			                            <form class="addmyoffres" method="POST">
+			                            <form class="addElemt" method="POST">
 					                                    <div class="row">
 					                                        <input type="hidden" name="editProfile"/>
 					                                        <div class="col-md-4">
 					                                            <div class="form-group">
+                                                                   <input type="hidden" name="editUsers1"/>
 					                                                <label>Nom</label>
-					                                                <input type="text" required class="form-control" name="nomUsers"  placeholder="nom" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'nom')?>">
+					                                                <input type="text" required class="form-control" name="nom"  placeholder="nom" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'nom')?>">
 					                                            </div>
 					                                        </div>
 					                                        <div class="col-md-4">
 					                                            <div class="form-group">
 					                                                <label>Prenom</label>
-					                                                <input type="text" required class="form-control" name="prenomUsers" placeholder="Prenom" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'prenom')?>">
+					                                                <input type="text" required class="form-control" name="prenom" placeholder="Prenom" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'prenom')?>">
 					                                            </div>
 					                                        </div>
 					                                        <div class="col-md-4">
 					                                            <div class="form-group">
 					                                                <label for="exampleInputEmail1">Email address</label>
-					                                                <input type="email" required class="form-control" name="emailUsers" placeholder="Email" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'email')?>">
+					                                                <input type="email" required class="form-control" name="email" placeholder="Email" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'email')?>">
 					                                            </div>
 					                                        </div>
 					                                    </div>
@@ -114,45 +148,25 @@ $CI = &get_instance();
 					                                        <div class="col-md-6 pr-1">
 					                                            <div class="form-group">
 					                                                <label>Numero</label>
-					                                                <input type="number" required class="form-control" name="numeroUsers" placeholder="Numero" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'phone')?>">
+					                                                <input type="number" required class="form-control" name="phone" placeholder="Numero" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'phone')?>">
 					                                            </div>
 					                                        </div>
 					                                        <div class="col-md-6 pl-1">
 					                                            <div class="form-group">
 					                                                <label>Login</label>
-					                                                <input type="text" required class="form-control" name="loginUsers" placeholder="Login" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'matricule')?>">
+					                                                <input type="text" required class="form-control" name="matricule" placeholder="Matricule" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'matricule')?>">
 					                                            </div>
 					                                        </div>
 					                                    </div>
 
 					                                    <div class="row">
-					                                        <div class="col-md-4">
-					                                            <div class="form-group">
-					                                                <label>Changer le Pays</label>
-					                                                <select name="idPays" required class="form-control">
-					                                                  <option selected disabled>Changer mon pays</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Pays</label>
-                                                <input type="text" disabled class="form-control" placeholder="Pays" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Code Postal</label>
-                                                <input type="number" class="form-control" name="bpUsers" placeholder="ZIP Code" value="">
-                                            </div>
-                                        </div>
+					                                        
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Apropos de moi</label>
-                                                <textarea rows="4" cols="80" class="form-control" name="autre" placeholder="Apropos de moi"></textarea>
+                                                <label>Date de Naissance</label>
+                                                <input type="date" name="naiss" class="form-control" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'naiss')?>"/>
                                             </div>
                                         </div>
                                     </div>
@@ -174,64 +188,7 @@ $CI = &get_instance();
                                 </form>
                         </div>
                         <!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab_2-2"><br>
-                            <h5>Informations Complementaires :</h5><br>
-
-                            <form class="addmyoffres" method="POST">
-			                                    <div class="row">
-			                                        <input type="hidden" name="editProfileOther"/>
-			                                        <div class="col-md-4">
-			                                            <div class="form-group">
-			                                                <label>Nom</label>
-			                                                <input type="text" required class="form-control" name="nomUsers"  placeholder="nom" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'nom')?>">
-			                                            </div>
-			                                        </div>
-			                                        <div class="col-md-4">
-			                                            <div class="form-group">
-			                                                <label>Prenom</label>
-			                                                <input type="text" required class="form-control" name="prenomUsers" placeholder="Prenom" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'prenom')?>">
-			                                            </div>
-			                                        </div>
-			                                        <div class="col-md-4">
-			                                            <div class="form-group">
-			                                                <label for="exampleInputEmail1">Email address</label>
-			                                                <input type="email" required class="form-control" name="emailUsers" placeholder="Email" value="<?=$CI->users->getOneData($_SESSION['ens_userid'], 'email')?>">
-			                                            </div>
-			                                        </div>
-			                                    </div>
-			                        <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Pays</label>
-                                                <input type="text" disabled class="form-control" placeholder="Pays" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Code Postal</label>
-                                                <input type="number" class="form-control" name="bpUsers" placeholder="ZIP Code" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Mot de Passe</label>
-                                                <input type="password" class="form-control" required name="password" placeholder="mon adresse" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="col-md-12" id="reponses"></div>
-                                        <div class="col-md-12" id="push">
-                                             <button type="submit" class="btn btn-primary">Confirmer</button>
-                                             <button type="reset" class="btn btn-warning">Annuler</button>
-                                        </div>
-                                    </div>
-                                </form>
-                        </div>
-                        <!-- /.tab-pane -->
+                        
                         <div class="tab-pane" id="tab_3-2"><br>
                             <h5>Mot de Passe :</h5><br>
 

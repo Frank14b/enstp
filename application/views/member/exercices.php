@@ -150,7 +150,7 @@ if($details){
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form method="post" id="addSuppor" style="margin-top:-37px;" enctype="multipart/form-data">
+                    <form method="post" id="addSupportt" style="margin-top:-37px;" enctype="multipart/form-data">
                     <div class="row">
                     <div class="col-md-12"><div class="icon"></div>
             					<div class="mdc-layout-grid">

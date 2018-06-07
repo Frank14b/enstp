@@ -125,6 +125,8 @@ class Member extends CI_Controller {
             $this->addRubr();
             $this->addActu();
             $this->addCours();
+            $this->editUsers1();
+            $this->editUsers2();
 
             if (isset($_POST['retriveMess'])) {
                 $this->retriveMess();
@@ -515,6 +517,30 @@ class Member extends CI_Controller {
         if (isset($_POST['addUsers'])) {
             $role = $this->typeuser->getOneData($_POST['Typ_id'], 'libeller');
             $val = $this->users->insertusers(0, $role);
+            if ($val != false) {
+                echo 1;
+            } else {
+                echo 0;
+            }
+            die();
+        }
+    }
+
+    public function editUsers1(){
+        if (isset($_POST['editUsers1'])) {
+            $val = $this->users->updateusers1(0, $_SESSION['ens_userid']);
+            if ($val != false) {
+                echo 1;
+            } else {
+                echo 0;
+            }
+            die();
+        }
+    }
+
+    public function editUsers2(){
+        if (isset($_POST['editUsers2'])) {
+            $val = $this->users->updateusers2(0, $_SESSION['ens_userid']);
             if ($val != false) {
                 echo 1;
             } else {

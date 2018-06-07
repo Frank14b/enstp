@@ -665,6 +665,14 @@ if ($title == "forum" || $title == "actualites") {
 
 <script>
     $(document).ready(function () {
+        
+        if($(document).width() < 800){
+            $('.zone-menu').removeClass('mdc-persistent-drawer--open')
+            $('.content-wrapper').addClass('drawer-minimized')
+            $('.mdc-toolbar__menu-icon').on('click', function(){
+                $('.content-wrapper').addClass('drawer-minimized')
+            });  
+        } 
 
         $('#support').change(function (e) {
             e.preventDefault();

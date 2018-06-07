@@ -139,6 +139,91 @@
                 </div>
             </div>
 
+            <div class="row justify-content-center cards hover" style="background:#f5f5f5; margin-top:20px; border-radius:0px">
+                <!-- ========== Single Blog Post ========== -->
+                
+                <?php
+    $CI = &get_instance();
+?>
+
+                <?php
+                    $val = $CI->documents->getAlldocumentspaginate(0, 3);
+                    if ($val == NULL) {
+                        ?>
+                    <div class="col-12 col-md-12 col-lg-12">
+                    <div class="single-blog-post post-style-3 mt-50 wow fadeInUpBig" data-wow-delay="0.6s">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="<?=base_url()?>assets/img/student-education.jpg" alt="" style="height:500px;">
+                            <!-- Post Content -->
+                            <div class="post-content d-flex align-items-center justify-content-between" >
+                                <!-- Catagory -->
+                                <div class="post-tag"><a href="#">Documents & Livres</a></div>
+                                <!-- Headline -->
+                                <h1 class="mdc-typography--headline" style="color:#fff">Oups ! Aucun document disponible trouvé</h1>
+                                    <h1 class="mdc-typography--title" style="color:#fff">Echangez sur vos activites</h1>
+                                    <h2 class="mdc-typography--subheading2" style="color:#fff">Discussion Instantannee</h2>
+                                    <h2 class="mdc-theme--secondary mdc-typography--subheading1" style="color:#fff">Comment sa marche ?</h2>
+                                    <p class="mdc-typography--body1" style="color:#fff">
+                                        Demarrez une discussion avec lun de vos camarade en choisissant un utilisateur vis le menu de gauche.
+                                        <br>
+                                        Vous pouvez decider de creer un groupe de discussion et y integrer plusieurs de vos camarades pour avoir une discussion en groupe. Vous avez le choix 
+                                        et la possibilite de creer un groupe caractere privee ou publique selon le mode daudience que vous desirez pour le votre.
+                                        <br>
+                                        Vous pouvez decider de creer un groupe relatif a votre niveau detude. Ce groupe ne sera visible que par le utilisateurs ayant le meme niveau detude que vous.
+                                    </p>
+                                <!-- Post Meta -->
+                                <div class="post-meta">
+                                    <p><center><a href="#" class="post-author btn btn-primary">M'abonner a la Bibliotheque</a></center></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        <?php
+                    }else{
+                        //$CI->pagination->initialize($config);
+                        ?>
+                        <div class="col-12 col-md-12 col-lg-12" style="margin-bottom:10px; margin-top:15px;">
+                          <h2>Documents & Livres</h2>
+                        </div>
+                        <?php
+                        foreach ($val as $py):
+                        ?>
+                <div class="col-12 col-md-6 col-lg-4" style="margin-bottom:10px;">
+                    <!-- Single Blog Post -->
+                    <div class="single-blog-post" style="background:#fff">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="<?php echo $py->photo ?? base_url() . 'assets/img/blog-img/b4.jpg' ?>" alt="">
+                            <!-- Catagory -->
+                            <div class="post-cta"><a href="#">Documents</a></div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="#" class="headline">
+                                <h5><?= $CI->typedoc->getOneData($py->Typ_id, "libeller") ?> | <?= $py->libeller ?></h5>
+                            </a>
+                            <p><?= substr($py->details, 0, 115) ?> ...</p>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">VIRTEK</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                     <?php 
+                     endforeach;
+                     ?>
+                       <div class="col-12 col-md-12 col-lg-12" style="margin-bottom:10px;"><hr>
+                       <p><center><a href="#" class="post-author btn btn-primary">Plus de Documents & Livres</a></center></p>
+                        </div>
+                     <?php 
+                    }
+                     ?>
+            </div>
+
             <div class="row justify-content-center cards">
                 <!-- ========== Single Blog Post ========== -->
                 <div class="col-12 col-md-12 col-lg-12">
@@ -156,7 +241,7 @@
                                 </a>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <p><center><a href="#" class="post-author btn btn-primary">M'abonner</a></center></p>
+                                    <p><center><a href="#" class="post-author btn btn-primary">M'abonner aux Actualites</a></center></p>
                                 </div>
                             </div>
                         </div>

@@ -164,6 +164,34 @@ class users extends CI_Model {
         }
     }
 
+    public function updateusers1($status, $user) {
+        $this->db->set('matricule', $_POST['matricule']);
+        $this->db->set('nom', $_POST['nom']);
+        $this->db->set('email', $_POST['email']);
+        $this->db->set('prenom', $_POST['prenom']);
+        $this->db->set('phone', $_POST['phone']);
+        $this->db->set('naiss', $_POST['naiss']);
+
+        $this->db->where('id', $user);
+        if ($this->db->update("users")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateusers2($status, $user) {
+        $this->db->set('Fil_id', $_POST['Fil_id']);
+        $this->db->set('Niv_id', $_POST['Niv_id']);
+
+        $this->db->where('id', $user);
+        if ($this->db->update("users")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function editUsers($user) {
         $this->db->set('idPays', $_POST['idPays']); // please read the below note
         $this->db->set('loginUsers', $_POST['loginUsers']);
