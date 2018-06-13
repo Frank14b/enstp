@@ -91,11 +91,14 @@ $CI = &get_instance();
               <section class="mdc-card__social-footer bg-blue" style="background:#f5f5f5">
               <?php 
                if(isset($g)){
+                 $myg = $CI->groupes->getOneData($g, "Use_id");
+                 if($myg == $_SESSION['ens_userid']){
                  ?>
-                   <button data-target="#groupModal" data-toggle="modal" class="btn btn-primary btn-sm" style="margin:-15px; margin-left:2px; margin-right:2px;">Membres du Groupe &nbsp; <span class="badge badge-default badge-pill" style="float:right; font-size:1.0em"><?=$CI->joins->countWoWantToJoin($g, 'status', 0)?></span></button>
-                   <button data-target="#groupModal" data-toggle="modal" class="btn btn-danger btn-sm" style="margin:-15px; margin-left:2px; margin-right:2px;">Demandes D'adhesion &nbsp; <span class="badge badge-danger badge-pill" style="float:right; font-size:1.0em"><?=$CI->joins->countWoWantToJoin($g, 'status', 1)?></span></button>
+                   <button data-target="#groupMemberModal" data-toggle="modal" class="btn btn-primary btn-sm" style="margin:-15px; margin-left:2px; margin-right:2px;">Membres du Groupe &nbsp; <span class="badge badge-default badge-pill" style="float:right; font-size:1.0em"><?=$CI->joins->countWoWantToJoin($g, 'status', 0)?></span></button>
+                   <button data-target="#groupAdesionModal" data-toggle="modal" class="btn btn-danger btn-sm" style="margin:-15px; margin-left:2px; margin-right:2px;">Demandes D'adhesion &nbsp; <span class="badge badge-danger badge-pill" style="float:right; font-size:1.0em"><?=$CI->joins->countWoWantToJoin($g, 'status', 1)?></span></button>
                    <button data-target="#groupModal" data-toggle="modal" class="btn btn-info btn-sm" style="margin:-15px; margin-left:2px; margin-right:2px;">Configuration</button>
                  <?php 
+                 }
                }
               ?>
               </section>
@@ -300,24 +303,24 @@ $CI = &get_instance();
                     </div>
                     <div class="modal-body">
                     <form>
-                    <div class="mdc-layout-grid">
+                    <div class="col-md-12">
                     <div class="row"><div class="icon"><h5><i class="fa fa-user"></i> Creez votre Groupe</h5><br></div>
-            					<div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+            					<div class="row">
+                        <div class="col-md-6">
                           <label class="mdc-text-field w-100">
                             <input type="text" name="libeller" id="libgroup" required class="mdc-text-field__input">
                             <span class="mdc-text-field__label">Nom</span>
                             <div class="mdc-text-field__bottom-line"></div>
                           </label>
             						</div>
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                        <div class="col-md-6">
                           <label class="mdc-text-field w-100">
                             <input type="text" name="theme" id="temgroup" required class="mdc-text-field__input">
                             <span class="mdc-text-field__label">Theme</span>
                             <div class="mdc-text-field__bottom-line"></div>
                           </label>
             						</div>
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                        <div class="col-md-6">
                           <label class="mdc-text-field w-100">Niveau
                             <select name="Niv_id" id="nivgroup" class="mdc-text-field__input gNiveau">
                             <option  value=""></option>
@@ -335,7 +338,7 @@ $CI = &get_instance();
                           </label>
                         </div>
 
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                        <div class="col-md-6">
                           <label class="mdc-text-field w-100">Filieres
                             <select name="Fil_id" id="filgroup" class="mdc-text-field__input gFiliere">
                           
@@ -344,7 +347,7 @@ $CI = &get_instance();
                           </label>
                         </div>
                     
-                  <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                  <div class="col-md-6">
                     <label class="mdc-text-field w-100">Groupe Public 
                     <div class="mdc-switch">
                       <input type="radio" name="etat" value="0" id="basic-switch" checked class="mdc-switch__native-control etatgroup" />
@@ -354,7 +357,7 @@ $CI = &get_instance();
                     </div>
                     </label>
                   </div>
-                  <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                  <div class="col-md-6">
                     <label class="mdc-text-field w-100">Groupe Prive
                     <div class="mdc-switch">
                       <input type="radio" name="etat" value="1" id="basic-switch" class="mdc-switch__native-control etatgroup"/>
@@ -365,7 +368,7 @@ $CI = &get_instance();
                     </label>
                   </div>
                         
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                        <div class="col-md-12">
                            <div class="form_groupe">
                                 <div class="form_element btn-sm btn-default btn" style="padding:0px; width:100%" data-toggle="modal" data-target="#picture">
                                     <a class="zs_label mdc-text-field w-100" style="margin-top:10px; font-weight:bold">Choisir une Photo</a>
@@ -442,24 +445,24 @@ $CI = &get_instance();
                     </div>
                     <div class="modal-body">
                   <form>
-                    <div class="mdc-layout-grid">
+                    <div class="col-md-12">
                     <div class="row"><div class="icon"><h5><i class="fa fa-user"></i> Configuration du groupe</h5><br></div>
-            					<div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-                          <label class="mdc-text-field w-100">
+            					<div class="row">
+                        <div class="col-md-12">
+                          <label class="mdc-text-field w-100">Libeller
                             <input type="text" name="libeller" value="<?=$CI->groupes->getOneData($g,'libeller')?>" id="libgroup" required class="mdc-text-field__input">
                             <span class="mdc-text-field__label"></span>
                             <div class="mdc-text-field__bottom-line"></div>
                           </label>
             						</div>
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-                          <label class="mdc-text-field w-100">
+                        <div class="col-md-12">
+                          <label class="mdc-text-field w-100">Description
                             <input type="text" name="theme" id="temgroup" value="<?=$CI->groupes->getOneData($g,'theme')?>" required class="mdc-text-field__input">
                             <span class="mdc-text-field__label"></span>
                             <div class="mdc-text-field__bottom-line"></div>
                           </label>
             				</div>
-                  <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                  <div class="col-md-6">
                     <label class="mdc-text-field w-100">Groupe Public 
                     <div class="mdc-switch">
                       <input type="radio" name="etat" value="0" id="basic-switch" <?php if($CI->groupes->getOneData($g,'etat') ==0)echo'checked'?> class="mdc-switch__native-control etatgroup" />
@@ -469,7 +472,7 @@ $CI = &get_instance();
                     </div>
                     </label>
                   </div>
-                  <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
+                  <div class="col-md-6">
                     <label class="mdc-text-field w-100">Groupe Prive
                     <div class="mdc-switch">
                       <input type="radio" name="etat" value="1" id="basic-switch" <?php if($CI->groupes->getOneData($g,'etat') ==1)echo'checked'?> class="mdc-switch__native-control etatgroup"/>
@@ -505,3 +508,93 @@ $CI = &get_instance();
            display:block;
          }
         </style>
+
+
+        <div class="modal modal-default fade" id="groupAdesionModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close btn btn-danger btn-sm" data-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-power-off"></i>x
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <h5>Demandes D'hadesion au groupe</h5>
+
+                         <div class="row">
+                            <div class="col-md-12">
+                                <?php 
+                                   if(isset($g)){
+                                     $data = $CI->joins->getAlldemandes($g);
+                                     if($data == false){
+
+                                     }else{
+                                      ?><ol><?php
+                                       foreach ($data as $row):
+                                          ?>
+                                             <li><img src="<?=base_url()?>assets/profile/<?=$CI->users->getOneData($row->Use_id, "photo")?>" class="img-circle" style="width:30px; height:30px; margin-right:15px; margin-top:-10px"/>
+                                             <?= $CI->users->getOneData($row->Use_id, "prenom") ?> <?= $CI->users->getOneData($row->Use_id, "nom") ?> 
+                                             &nbsp; <a class="btn btn-sm btn-primary">Autoriser</a>&nbsp; <a class="btn btn-sm btn-warning">Refuser</a></li>
+                                          <?php
+                                       endforeach;
+                                       ?></ol><?php
+                                     }
+                                   }
+                                ?>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
+        <div class="modal modal-default fade" id="groupMemberModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close btn btn-danger btn-sm" data-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-power-off"></i>x
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <h5>Membres du groupe</h5>
+
+                         <div class="row">
+                            <div class="col-md-12">
+                                <?php 
+                                   if(isset($g)){
+                                     $data = $CI->joins->getAllMember($g);
+                                     if($data == false){
+
+                                     }else{
+                                      ?><hr><ol><?php
+                                       foreach ($data as $row):
+                                          ?>
+                                             <li style="float:right"><img src="<?=base_url()?>assets/profile/<?=$CI->users->getOneData($row->Use_id, "photo")?>" class="img-circle" style="width:30px; height:30px; margin-right:15px; margin-top:-10px"/>
+                                             <?= $CI->users->getOneData($row->Use_id, "prenom") ?> <?= $CI->users->getOneData($row->Use_id, "nom") ?> 
+                                             &nbsp; <a class="btn btn-sm btn-primary" style="float:right">Contacter</a>&nbsp; <a class="btn btn-sm btn-warning" style="float:right">Retirer</a></li>
+                                          <?php
+                                       endforeach;
+                                       ?></ol><?php
+                                     }
+                                   }
+                                ?>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->

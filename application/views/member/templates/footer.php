@@ -840,6 +840,23 @@ if ($title == "forum" || $title == "actualites") {
             reader.readAsDataURL(this.files[0]);
         });
 
+        $('.cropped_imageUsers').on('click', function (ev) {
+            $image_crop.croppie('result', {
+                type: 'canvas',
+                size: 'viewport'
+            }).then(function (response) {
+                $.ajax({
+                    url: "",
+                    type: "POST",
+                    data: {"imageP": response, "addProfile": ""},
+                    success: function (data) {
+                        alert(data);
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+
         $('.cropped_imageGroup').on('click', function (ev) {
             var libeller = $("#libgroup").val();
             var theme = $("#temgroup").val();

@@ -40,8 +40,8 @@ $CI = &get_instance();
               <div class="list-group">
                 <div class="col-md-12" style="margin-bottom:15px; position:relative">
                    <div class="zs_cards card_vert" style="margin-bottom:20px">
-                         <div class="card_image" >
-                         <img src="<?=base_url()?>assets/img/profiles/<?php echo $CI->users->getOneData($_SESSION['ens_userid'], 'photo') ?? 'avatar6.png' ?>" alt="VIRTEK" class="" style="border-radius:0px; width:75%;"/>
+                         <div class="card_image" style="background:#fff">
+                         <img src="<?=base_url()?>assets/profile/<?php echo $CI->users->getOneData($_SESSION['ens_userid'], 'photo') ?? 'avatar6.png' ?>" alt="VIRTEK" class="" style="border-radius:0px; width:75%;"/>
                          </div>
                          <div class="card_date">
                              <span class="date_day"><?=explode("-", $CI->users->getOneData($_SESSION['ens_userid'], 'dates'))[2] ?? ""?></span>
@@ -240,3 +240,46 @@ $CI = &get_instance();
           </div>
         </div>
       </main>
+
+      <div class="modal fade" role="dialog" id="picture">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <i class="fa fa-image"></i>&nbsp; Choisir une Image</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
+                            <i class="fa fa-power-off"></i>
+                        </button>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <center>
+                                        <button class="btn btn-sm btn-primary btn-flat choose_image">
+                                            <i class="fa fa-image"></i>&nbsp; Choisir une Image</button>
+                                        <button class="btn btn-sm btn-info image_crop-rotate" data-deg="-90" id="RotateAntiClockwise">
+                                            <i class="fa fa-arrow-left"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-info image_crop-rotate" data-deg="90" id="RotateClockwise">
+                                            <i class="fa fa-arrow-right"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-success cropped_imageUsers">Enregistrer</button>
+                                    </center>
+                                    <br>
+                                    <div id="upload-imageProfile">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="file" id="images" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -220,8 +220,7 @@ class users extends CI_Model {
     }
 
     public function updateImage($lien, $user) {
-        $this->db->set('photoUsers', $lien); // please read the below note
-        //$this->db->set('dateUsers', time());
+        $this->db->set('photo', $lien); 
         $this->db->where('id', $user);
 
         $this->db->update('users');

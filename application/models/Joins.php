@@ -20,6 +20,32 @@ class joins extends CI_Model
         return $query->result();
     }
 
+    public function getAlldemandes($id)
+    {
+        $this->db->where("id", $id);
+        $this->db->where("status", 1);
+        $query = $this->db->get("joins");
+        if ($query->num_rows() == 0) 
+        {
+            return false;
+        } else {
+            return $query->result();
+        }
+    }
+
+    public function getAllMember($id)
+    {
+        $this->db->where("id", $id);
+        $this->db->where("status", 0);
+        $query = $this->db->get("joins");
+        if ($query->num_rows() == 0) 
+        {
+            return false;
+        } else {
+            return $query->result();
+        }
+    }
+
     public function countAlljoins()
     {
         $query = $this->db->get_where("joins", array("status" => 0));

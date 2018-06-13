@@ -127,6 +127,7 @@ class Member extends CI_Controller {
             $this->addCours();
             $this->editUsers1();
             $this->editUsers2();
+            $this->addProfile();
 
             if (isset($_POST['retriveMess'])) {
                 $this->retriveMess();
@@ -640,6 +641,32 @@ class Member extends CI_Controller {
                 if ($this->groupes->insertgroupes($image_name, 0) == true) {
                     //$resultat = move_uploaded_file($_FILES['imageP']['tmp_name'], "../../images/gallery/proprioLogo/" . $image_name);
                     file_put_contents('assets/img/groupes/' . $name, $croped_image);
+                    echo 'Operation effectue avec succes';
+                    die();
+                } else {
+                    echo 'echec lors de lajout du document';
+                    die();
+                }
+
+                die();
+            }
+        }
+    }
+
+    public function addProfile()
+    {
+        if(isset($_POST['addProfile'])){
+            if (isset($_POST['imageP'])) {
+                $croped_image = $_POST['imageP'];
+                list($type, $croped_image) = explode(';', $croped_image);
+                list(, $croped_image) = explode(',', $croped_image);
+                $croped_image = base64_decode($croped_image);
+                $name = time() . "png";
+                $image_name = $name;
+
+                if ($this->users->updateImage($image_name, $_SESSION['ens_userid']) == true) {
+                    //$resultat = move_uploaded_file($_FILES['imageP']['tmp_name'], "../../images/gallery/proprioLogo/" . $image_name);
+                    file_put_contents('assets/profile/' . $name, $croped_image);
                     echo 'Operation effectue avec succes';
                     die();
                 } else {

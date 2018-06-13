@@ -1,3 +1,6 @@
+<?php
+  $_POST['M-Details'] = "Acces Espace Filtre";
+?>
 
     <div class="page-wrapper mdc-toolbar-fixed-adjust">
       <main class="content-wrapper">
